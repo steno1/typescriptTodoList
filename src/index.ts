@@ -1,4 +1,3 @@
-
 interface TodoItem {
     id: number;
     task: string;
@@ -10,20 +9,20 @@ class TodoList {
     private todos: TodoItem[] = [];
     private nextId: number = 1;
 
-    // Add new Item with validation
+    // Add a new Todo with error handling
     addTodo(task: string, dueDate: Date): void {
         if (!task.trim()) {
-            console.log("Error: Task description cannot be empty.");
+            console.log("❌ Error: Task description cannot be empty.");
             return;
         }
 
-        if (isNaN(dueDate.getTime())) {
-            console.log("Error: Invalid due date.");
+        if (!(dueDate instanceof Date) || isNaN(dueDate.getTime())) {
+            console.log("❌ Error: Invalid due date.");
             return;
         }
 
         if (this.todos.some(todo => todo.task.toLowerCase() === task.toLowerCase())) {
-            console.log(`Error: Task "${task}" already exists.`);
+            console.log(`❌ Error: Task "${task}" already exists.`);
             return;
         }
 
@@ -33,48 +32,51 @@ class TodoList {
             completed: false,
             dueDate
         });
-        console.log(`Added: "${task}"`);
+        console.log(`✅ Added: "${task}"`);
     }
 
     
     completeTodo(id: number): void {
         const todo = this.todos.find(todo => todo.id === id);
         if (!todo) {
-            console.log(`Error: Todo with ID ${id} not found.`);
+            console.log(`❌ Error: Todo with ID ${id} not found.`);
             return;
         }
 
         if (todo.completed) {
-            console.log(`Error: Todo "${todo.task}" is already completed.`);
+            console.log(`❌ Error: Task "${todo.task}" is already completed.`);
             return;
         }
 
         todo.completed = true;
-        console.log(`Completed: "${todo.task}"`);
+        console.log(`✅ Completed: "${todo.task}"`);
     }
 
-    // Remove a todo item with error handling
+    // Remove a Todo with error handling
     removeTodo(id: number): void {
         const index = this.todos.findIndex(todo => todo.id === id);
         if (index === -1) {
-            console.log(`Error: Todo with ID ${id} not found.`);
+            console.log(`❌ Error: Todo with ID ${id} not found.`);
             return;
         }
 
         const removed = this.todos.splice(index, 1);
-        console.log(`Removed: "${removed[0].task}"`);
+        console.log(`🗑️ Removed: "${removed[0].task}"`);
     }
 
-    // List all todos with handling for empty lists
-    listTodos(): void {
+    
+    listTodos(): TodoItem[] {
         if (this.todos.length === 0) {
-            console.log("No todos available.");
-            return;
+            console.log("📋 No todos available.");
+            return [];
         }
 
+        console.log("\n📌 Your Todo List:");
         this.todos.forEach(todo => {
             console.log(`${todo.id}. ${todo.task} - ${todo.completed ? "✅ Completed" : "❌ Pending"} (Due: ${todo.dueDate.toDateString()})`);
         });
+        
+        return this.todos;
     }
 
     
@@ -82,37 +84,37 @@ class TodoList {
         return this.todos.filter(todo => todo.completed === completed);
     }
 
-    // Update a item with validation
+    // Update a Todo with error handling
     updateTodo(id: number, newTask: string): void {
         if (!newTask.trim()) {
-            console.log("Error: Task description cannot be empty.");
+            console.log("❌ Error: Task description cannot be empty.");
             return;
         }
 
         const todo = this.todos.find(todo => todo.id === id);
         if (!todo) {
-            console.log(`Error: Todo with ID ${id} not found.`);
+            console.log(`❌ Error: Todo with ID ${id} not found.`);
             return;
         }
 
         todo.task = newTask;
-        console.log(`Updated ID ${id}: "${newTask}"`);
+        console.log(`📝 Updated ID ${id}: "${newTask}"`);
     }
 
     
     clearCompleted(): void {
         const completedTodos = this.todos.filter(todo => todo.completed);
         if (completedTodos.length === 0) {
-            console.log("No completed tasks to clear.");
+            console.log("📌 No completed tasks to clear.");
             return;
         }
 
         this.todos = this.todos.filter(todo => !todo.completed);
-        console.log(`Cleared ${completedTodos.length} completed task(s).`);
+        console.log(`🗑️ Cleared ${completedTodos.length} completed task(s).`);
     }
 }
 
-// Example usage in terminal
+// Example usage
 const myTodos = new TodoList();
 myTodos.addTodo("Finish TypeScript project", new Date("2025-03-01"));
 myTodos.addTodo("Read a new book", new Date("2025-03-05"));
