@@ -9,6 +9,7 @@ class TodoList {
     private todos: TodoItem[] = [];
     private nextId: number = 1;
 
+    // Add a new task with validation
     addTodo(task: string, dueDate: Date): void {
         if (!task.trim()) {
             console.log("Error: Task description cannot be empty.");
@@ -34,6 +35,7 @@ class TodoList {
         console.log(`Added: "${task}"`);
     }
 
+    // Mark a task as completed
     completeTodo(id: number): void {
         const todo = this.todos.find(todo => todo.id === id);
         if (!todo) {
@@ -50,6 +52,7 @@ class TodoList {
         console.log(`Completed: "${todo.task}"`);
     }
 
+    // Remove a task by ID
     removeTodo(id: number): void {
         const index = this.todos.findIndex(todo => todo.id === id);
         if (index === -1) {
@@ -61,6 +64,7 @@ class TodoList {
         console.log(`Removed: "${removed[0].task}"`);
     }
 
+    // Display all tasks
     listTodos(): TodoItem[] {
         if (this.todos.length === 0) {
             console.log("No todos available.");
@@ -75,10 +79,12 @@ class TodoList {
         return this.todos;
     }
 
+    // Filter tasks based on completion status
     filterTodos(completed: boolean): TodoItem[] {
         return this.todos.filter(todo => todo.completed === completed);
     }
 
+    // Update a task description
     updateTodo(id: number, newTask: string): void {
         if (!newTask.trim()) {
             console.log("Error: Task description cannot be empty.");
@@ -95,6 +101,7 @@ class TodoList {
         console.log(`Updated ID ${id}: "${newTask}"`);
     }
 
+    // Remove all completed tasks
     clearCompleted(): void {
         const completedTodos = this.todos.filter(todo => todo.completed);
         if (completedTodos.length === 0) {
@@ -107,6 +114,7 @@ class TodoList {
     }
 }
 
+// Example usage
 const myTodos = new TodoList();
 myTodos.addTodo("Finish TypeScript project", new Date("2025-03-01"));
 myTodos.addTodo("Read a new book", new Date("2025-03-05"));
