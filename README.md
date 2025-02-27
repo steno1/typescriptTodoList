@@ -1,8 +1,11 @@
-# TypeScript Todo List ✅
+# TypeScript Todo List ✅  
 
-A **simple CLI-based Todo List application** built with TypeScript. This project demonstrates TypeScript features like interfaces, classes, and error handling while managing todo tasks.
+A **simple CLI-based Todo List application** built with TypeScript.  
+This project demonstrates TypeScript features like interfaces, classes, and error handling while managing todo tasks.  
 
-## 🚀 Features
+---
+
+## 🚀 Features  
 
 - 📌 **Add** a new todo task with a due date  
 - ✅ **Mark** a task as completed  
@@ -13,23 +16,29 @@ A **simple CLI-based Todo List application** built with TypeScript. This project
 - 🧹 **Clear** completed tasks  
 - ⚡ **Error handling** for invalid inputs  
 
-## 📦 Installation
+---
+
+## 📦 Installation  
 
 1. **Clone the repository**  
    ```sh
    git clone https://github.com/steno1/typescriptTodoList.git
-
 Navigate into the project folder
+
+
 cd typescriptTodoList
-
 Install dependencies
+
+
 npm install
-
 Compile TypeScript to JavaScript
-tsc
 
+
+tsc
 ▶️ Usage
 Run the application
+
+
 node dist/index.js
 Modify index.ts to test different todo list functionalities.
 
@@ -41,6 +50,7 @@ Modify index.ts to test different todo list functionalities.
 🛑 Handles clearing when no completed tasks exist
 
 🏗️ Project Structure
+
 typescriptTodoList/
 │── src/                 # Source code folder
 │   ├── index.ts         # Main TypeScript file
@@ -56,3 +66,4 @@ Fork this repository
 Create a new branch
 Commit your changes
 Open a Pull Request
+
