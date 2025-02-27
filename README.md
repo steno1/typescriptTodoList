@@ -1,7 +1,7 @@
-# TypeScript Todo List ✅  
+# 📌 TypeScript Todo List ✅  
 
 A **simple CLI-based Todo List application** built with TypeScript.  
-This project demonstrates TypeScript features like interfaces, classes, and error handling while managing todo tasks.  
+This project showcases TypeScript features like **interfaces, classes, and error handling** while managing todo tasks.  
 
 ---
 
@@ -20,28 +20,26 @@ This project demonstrates TypeScript features like interfaces, classes, and erro
 
 ## 📦 Installation  
 
-1. **Clone the repository**  
-   ```sh
-   git clone https://github.com/steno1/typescriptTodoList.git
-Navigate into the project folder
+### 1️⃣ **Clone the Repository**  
+```sh
+git clone https://github.com/steno1/typescriptTodoList.git
+2️⃣ Navigate into the Project Folder
 
 
 cd typescriptTodoList
-Install dependencies
+3️⃣ Install Dependencies
 
 
 npm install
-Compile TypeScript to JavaScript
+4️⃣ Compile TypeScript to JavaScript
 
 
 tsc
 ▶️ Usage
-Run the application
-
+Run the Application
 
 node dist/index.js
-Modify index.ts to test different todo list functionalities.
-
+Modify index.ts to test different Todo List functionalities.
 🛡️ Error Handling
 🛑 Prevents empty or duplicate task descriptions
 🛑 Ensures valid due dates
@@ -51,19 +49,19 @@ Modify index.ts to test different todo list functionalities.
 
 🏗️ Project Structure
 
-typescriptTodoList/
-│── src/                 # Source code folder
-│   ├── index.ts         # Main TypeScript file
-│── dist/                # Compiled JavaScript files
-│── package.json         # Project dependencies
-│── tsconfig.json        # TypeScript configuration
-│── README.md            # Project documentation
+typescriptTodoList/  
+├── src/                 # Source code folder  
+│   ├── index.ts         # Main TypeScript file  
+├── dist/                # Compiled JavaScript files  
+├── package.json         # Project dependencies  
+├── tsconfig.json        # TypeScript configuration  
+├── README.md            # Project documentation  
 
 ✨ Contributions
-Feel free to contribute!
+Want to contribute? Follow these steps:
 
-Fork this repository
-Create a new branch
-Commit your changes
-Open a Pull Request
+1️⃣ Fork this repository
+2️⃣ Create a new branch
+3️⃣ Commit your changes
+4️⃣ Open a Pull Request
 
